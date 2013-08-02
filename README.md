@@ -3,7 +3,7 @@ A small jQuery plugin that will automatically cast a shadow creating depth for y
 Created by [Pete R.](http://www.thepetedesign.com), Founder of [BucketListly](http://www.bucketlistly.com)
 
 ## Usage
-To use `jquery.flatshadow.js` on your website, simply include the latest jQuery library found here together with `jquery.flatshadow.js` into your document's `<head>` and call the function like this:
+To use this on your website, simply include the latest jQuery library found here together with `jquery.flatshadow.js` into your document's `<head>`, follow by the html markup and a function call as follows:
   
 ````html
 <div class="flat-icon"> FLAT </div>
@@ -13,24 +13,12 @@ To use `jquery.flatshadow.js` on your website, simply include the latest jQuery 
 
 ````javascript
 $(".flat-icon").flatshadow({
-  color: "#2ecc71",
-  angle: "SE",
-  fade: true,
-  boxShadow: "#d7cfb9"
+  color: "#2ecc71", // Background color of elements inside. (Color will be random if left unassigned)
+  angle: "SE", // Shadows direction. Available options: N, NE, E, SE, S, SW, W and NW. (Angle will be random if left unassigned)
+  fade: true, // Gradient shadow effect
+  boxShadow: "#d7cfb9" // Color of the Container's shadow
 });
 ````
-
-### Color
-The color option allows you to assign a background color to all your elements at once. Color will be random if empty.
-
-### Angle
-The angle option allows you to assign the direction (N, NE, E, SE, S, SW, W and NW ) of the shadow of the elements inside. Angle will be random if empty.
-
-### Fade
-The fade option will turn the flat shadow effect into a gradient shadow effect.
-
-### boxShadow
-The boxShadow allows you to apply the same shadow effect to the container of the elements. The option accept a 6 hex color code. For example, "#000000".
 
 ## Further Customization
 With `jquery.flatshadow.js`, you can apply each individual elements with different effect by simply add a `data-color` and `data-angle` to your mark up as follows:
