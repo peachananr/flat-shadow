@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>jQuery Flat Shadow by Pete R.</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:700' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script type="text/javascript" src="jquery.flatshadow.js"></script>
+  <style>
+  
+    body {
+      background: #f9af4e;
+      padding: 170px 0;
+      text-align: center;
+    }
+    
+		.flat-icon {
+		  text-align: center;
+      font-family: 'open sans';
+      padding:23px 28px;
+      font-weight: bold;
+      display: inline-block;
+      line-height: 100%;
+      overflow: hidden;
+      text-transform: uppercase;
+      margin-right: 15px;
+      width: 40px;
+      font-size: 50px;
+      border-radius: 50px;
+      -moz-border-radius: 50px;
+      -webkit-border-radius: 50px;
+    }
+	</style>
+	<script>
+	  $(document).ready(function(){
+			$(".flat-icon").flatshadow({
+        fade: true,
+        boxShadow: "#ce892f"
+      });
+		});
+		
+	</script>
+</head>
+<body>
+	<div data-angle="N" class="flat-icon"> A </div>
+  <div data-angle="NE" class="flat-icon"> B </div>
+  <div data-angle="E" class="flat-icon"> C </div>
+  <div data-angle="SE" class="flat-icon"> D </div>
+  <div data-angle="S" class="flat-icon"> E </div>
+  <div data-angle="SW" class="flat-icon"> F </div>
+  <div data-angle="W" class="flat-icon"> G </div>
+  <div data-angle="NW" class="flat-icon"> H </div>
+</body>
+</html>
