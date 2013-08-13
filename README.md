@@ -2,6 +2,9 @@
 A small jQuery plugin that will automatically cast a shadow creating depth for your flat UI elements 
 Created by [Pete R.](http://www.thepetedesign.com), Founder of [BucketListly](http://www.bucketlistly.com)
 
+## Demo
+[View demo](http://thepetedesign.com/demos/jquery_flat_shadow_demo.html)
+
 ## Usage
 To use this on your website, simply include the latest jQuery library found here together with `jquery.flatshadow.js` into your document's `<head>`, follow by the html markup and a function call as follows:
   
