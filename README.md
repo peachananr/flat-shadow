@@ -39,4 +39,4 @@ $(".flat-icon").flatshadow({
 Now, each individual element will have its own effect without you calling the function multiple times.
 
 ## Other Resources
-- Tutorial (Coming Soon)
+- [Tutorial](http://www.onextrapixel.com/2013/08/09/add-depth-to-flat-ui-with-flat-shadow-js/)
