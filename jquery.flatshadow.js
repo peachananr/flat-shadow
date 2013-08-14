@@ -4,7 +4,7 @@
  * Copyright 2013 Pete Rojwongsuriya.
  * http://www.thepetedesign.com
  *
- * A small jQuery plugin that will automatically 
+ * A small jQuery plugin that will automatically
  * cast a shadow creating depth for your flat UI elements
  * https://github.com/peachananr/flat-shadow
  *
@@ -13,14 +13,14 @@
 !function($){
   var colors = new Array("#1ABC9C","#2ecc71","#3498db","#9b59b6","#34495e","#f1c40f","#e67e22", "#e74c3c");
   var angles = new Array("NE","SE","SW", "NW");
-  
+
   var defaults = {
 		fade: false,
 		color: "random",
 		boxShadow: false,
 		angle: "random"
 	};
-  
+
   function convertHex(hex,opacity){
       hex = hex.replace('#','');
       r = parseInt(hex.substring(0,2), 16);
@@ -30,7 +30,7 @@
       result = 'rgba('+r+','+g+','+b+','+opacity/100+')';
       return result;
   }
-  
+
   function colorLuminance(hex, lum) {
   	// validate hex string
   	hex = String(hex).replace(/[^0-9a-f]/gi, '');
@@ -47,10 +47,10 @@
   	}
   	return rgb;
   }
-  
+
   $.fn.flatshadow = function(options){
     var settings = $.extend({}, defaults, options);
-    
+
     return this.each(function(){
       el = $(this);
       if (settings.fade == true) {
@@ -60,26 +60,26 @@
         width = Math.round(el.outerWidth());
         height = Math.round(el.outerHeight());
       }
-      
-      if (settings.boxShadow != false) { 
-        var bg_color = settings.boxShadow; 
+
+      if (settings.boxShadow != false) {
+        var bg_color = settings.boxShadow;
       }
-      
+
       if (settings.color != "random" && !el.attr('data-color')) {
         var color = settings.color;
       } else {
         var color = colors[Math.floor(Math.random() * colors.length)];
-        
+
         if (el.attr('data-color')) {
           var color = el.attr('data-color');
         }
       }
-      
+
       if (settings.angle != "random" && !el.attr('data-angle')) {
         var angle = settings.angle;
       } else {
         var angle = angles[Math.floor(Math.random() * angles.length)];
-        
+
         if (el.attr('data-angle')) {
           var angle = el.attr('data-angle');
         }
@@ -87,14 +87,14 @@
 
       var darkercolor = colorLuminance(color, -0.3);
       var text_shadow = "";
-      
+
       if (settings.boxShadow != false) {
         var box_shadow = "";
       } else {
         var box_shadow = "none";
       }
-      
-      switch (angle) { 
+
+      switch (angle) {
         case 'N':
           for( var i=1; i <= height; i++ ) {
             if (settings.boxShadow != false) box_shadow += "0px " + (i * 2) * -1 + "px 0px " + convertHex( bg_color, (50 - i/ height * 100)  )
@@ -109,7 +109,7 @@
                box_shadow += ", "
              }
           }
-          break; 
+          break;
         case 'NE':
            for( var i=1; i <= height; i++ ) {
              if (settings.boxShadow != false) box_shadow += i * 2 + "px " + (i * 2) * -1 + "px 0px " + convertHex( bg_color, (50 - i/ height * 100)  )
@@ -224,7 +224,7 @@
       });
     });
   }
-  
+
 }(window.jQuery);
 
 
