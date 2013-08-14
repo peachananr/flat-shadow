@@ -95,11 +95,10 @@
       }
 
       var iLimit = angle == 'E' ? width : height;
+      var text_color = darkercolor;
       for( var i=1; i <= iLimit; i++ ) {
         if (settings.fade != false) {
-          var text_color = convertHex( darkercolor, 100 - i/iLimit * 100 );
-        } else {
-          var text_color = darkercolor;
+          text_color = convertHex( darkercolor, 100 - i/iLimit * 100 );
         }
         switch (angle) {
           case 'N':
@@ -136,8 +135,8 @@
             break;
         }
         if (i != iLimit) {
-           text_shadow += ", "
-           box_shadow += ", "
+           text_shadow += ", ";
+           box_shadow += ", ";
          }
       }
       el.css({
