@@ -67,19 +67,21 @@
 
       if (el.attr('data-color')) {
         var color = el.attr('data-color');
-      } else if (settings.color != "random") {
-        var color = settings.color;
       } else {
-        var color = colors[Math.floor(Math.random() * colors.length)];
+        var color = settings.color;
+      }
+      if (color == "random") {
+        color = colors[Math.floor(Math.random() * colors.length)];
 
       }
 
       if (el.attr('data-angle')) {
         var angle = el.attr('data-angle');
-      } else if (settings.angle != "random") {
-        var angle = settings.angle;
       } else {
-        var angle = angles[Math.floor(Math.random() * angles.length)];
+        var angle = settings.angle;
+      }
+      if (angle == "random") {
+        angle = angles[Math.floor(Math.random() * angles.length)];
       }
 
       var darkercolor = colorLuminance(color, -0.3);
