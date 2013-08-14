@@ -65,24 +65,21 @@
         var bg_color = settings.boxShadow;
       }
 
-      if (settings.color != "random" && !el.attr('data-color')) {
+      if (el.attr('data-color')) {
+        var color = el.attr('data-color');
+      } else if (settings.color != "random") {
         var color = settings.color;
       } else {
         var color = colors[Math.floor(Math.random() * colors.length)];
 
-        if (el.attr('data-color')) {
-          var color = el.attr('data-color');
-        }
       }
 
-      if (settings.angle != "random" && !el.attr('data-angle')) {
+      if (el.attr('data-angle')) {
+        var angle = el.attr('data-angle');
+      } else if (settings.angle != "random") {
         var angle = settings.angle;
       } else {
         var angle = angles[Math.floor(Math.random() * angles.length)];
-
-        if (el.attr('data-angle')) {
-          var angle = el.attr('data-angle');
-        }
       }
 
       var darkercolor = colorLuminance(color, -0.3);
