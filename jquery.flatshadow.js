@@ -94,127 +94,51 @@
         var box_shadow = "none";
       }
 
-      switch (angle) {
-        case 'N':
-          for( var i=1; i <= height; i++ ) {
-            if (settings.boxShadow != false) box_shadow += "0px " + (i * 2) * -1 + "px 0px " + convertHex( bg_color, (50 - i/ height * 100)  )
-            if (settings.fade != false) {
-              var text_color = convertHex( darkercolor, 100 - i/height * 100 );
-            } else {
-              var text_color = darkercolor;
-            }
-            text_shadow += "0px " + i * -1 + "px 0px " + text_color
-            if (i != height ) {
-               text_shadow += ", "
-               box_shadow += ", "
-             }
-          }
-          break;
-        case 'NE':
-           for( var i=1; i <= height; i++ ) {
-             if (settings.boxShadow != false) box_shadow += i * 2 + "px " + (i * 2) * -1 + "px 0px " + convertHex( bg_color, (50 - i/ height * 100)  )
-             if (settings.fade != false) {
-               var text_color = convertHex( darkercolor, 100 - i/height * 100 );
-             } else {
-               var text_color = darkercolor;
-             }
-             text_shadow += i + "px " + i * -1 + "px 0px " + text_color
-             if (i != height ) {
-                text_shadow += ", "
-                box_shadow += ", "
-              }
-           }
-           break;
-        case 'E':
-           for( var i=1; i <= width; i++ ) {
-             if (settings.boxShadow != false) box_shadow += i * 2 + "px " + "0px 0px " + convertHex( bg_color, (50 - i/ width * 100)  )
-             if (settings.fade != false) {
-               var text_color = convertHex( darkercolor, 100 - i/height * 100 );
-             } else {
-               var text_color = darkercolor;
-             }
-             text_shadow += i + "px " + "0px 0px " + text_color
-             if (i != width ) {
-                text_shadow += ", "
-                box_shadow += ", "
-              }
-           }
-           break;
-        case 'SE':
-           for( var i=1; i <= height; i++ ) {
-             if (settings.boxShadow != false) box_shadow += i * 2 + "px " + i * 2 + "px 0px " + convertHex( bg_color, (50 - i/ height * 100)  )
-             if (settings.fade != false) {
-               var text_color = convertHex( darkercolor, 100 - i/height * 100 );
-             } else {
-               var text_color = darkercolor;
-             }
-             text_shadow += i + "px " + i + "px 0px " + text_color
-             if (i != height ) {
-               text_shadow += ", "
-               box_shadow += ", "
-             }
-           }
-           break;
-        case 'S':
-           for( var i=1; i <= height; i++ ) {
-             if (settings.boxShadow != false) box_shadow += "0px " + i * 2 + "px 0px " + convertHex( bg_color, (50 - i/ height * 100)  )
-             if (settings.fade != false) {
-                var text_color = convertHex( darkercolor, 100 - i/height * 100 );
-              } else {
-                var text_color = darkercolor;
-              }
-             text_shadow += "0px " + i + "px 0px " + text_color
-             if (i != height ) {
-                text_shadow += ", "
-                box_shadow += ", "
-              }
-           }
-           break;
-        case 'SW':
-           for( var i=1; i <= height; i++ ) {
-             if (settings.boxShadow != false) box_shadow += (i * 2) * -1 + "px " + i * 2 + "px 0px " + convertHex( bg_color, (50 - i/ height * 100)  )
-             if (settings.fade != false) {
-                var text_color = convertHex( darkercolor, 100 - i/height * 100 );
-              } else {
-                var text_color = darkercolor;
-              }
-             text_shadow += i * -1 + "px " + i + "px 0px " + text_color
-             if (i != height ) {
-                text_shadow += ", "
-                box_shadow += ", "
-              }
-           }
-           break;
-        case 'W':
-           for( var i=1; i <= height; i++ ) {
-             if (settings.boxShadow != false) box_shadow += (i * 2) * -1 + "px " + "0px 0px " + convertHex( bg_color, (50 - i/ height * 100)  )
-             if (settings.fade != false) {
-                var text_color = convertHex( darkercolor, 100 - i/height * 100 );
-              } else {
-                var text_color = darkercolor;
-              }
-             text_shadow += i * -1 + "px " + "0px 0px " + text_color
-             if (i != height ) {
-                text_shadow += ", "
-                box_shadow += ", "
-              }
-           }
-           break;
-        case 'NW':
-           for( var i=1; i <= height; i++ ) {
-             if (settings.boxShadow != false) box_shadow += (i * 2) * -1 + "px " + (i * 2) * -1 + "px 0px " + convertHex( bg_color, (50 - i/ height * 100)  )
-             if (settings.fade != false) {
-                var text_color = convertHex( darkercolor, 100 - i/height * 100 );
-              } else {
-                var text_color = darkercolor;
-              }
-             text_shadow += i * -1 + "px " + i * -1 + "px 0px " + text_color
-             if (i != height ) {
-                text_shadow += ", "
-                box_shadow += ", "
-              }
-           }
-           break;
+      var iLimit = angle == 'E' ? width : height;
+      for( var i=1; i <= iLimit; i++ ) {
+        if (settings.fade != false) {
+          var text_color = convertHex( darkercolor, 100 - i/iLimit * 100 );
+        } else {
+          var text_color = darkercolor;
+        }
+        switch (angle) {
+          case 'N':
+            if (settings.boxShadow != false) box_shadow += "0px " + (i * 2) * -1 + "px 0px " + convertHex( bg_color, (50 - i/ height * 100)  );
+            text_shadow += "0px " + i * -1 + "px 0px " + text_color;
+            break;
+          case 'NE':
+            if (settings.boxShadow != false) box_shadow += i * 2 + "px " + (i * 2) * -1 + "px 0px " + convertHex( bg_color, (50 - i/ height * 100)  );
+            text_shadow += i + "px " + i * -1 + "px 0px " + text_color;
+            break;
+          case 'E':
+            if (settings.boxShadow != false) box_shadow += i * 2 + "px " + "0px 0px " + convertHex( bg_color, (50 - i/ width * 100)  );
+            text_shadow += i + "px " + "0px 0px " + text_color;
+            break;
+          case 'SE':
+            if (settings.boxShadow != false) box_shadow += i * 2 + "px " + i * 2 + "px 0px " + convertHex( bg_color, (50 - i/ height * 100)  );
+            text_shadow += i + "px " + i + "px 0px " + text_color;
+            break;
+          case 'S':
+            if (settings.boxShadow != false) box_shadow += "0px " + i * 2 + "px 0px " + convertHex( bg_color, (50 - i/ height * 100)  );
+            text_shadow += "0px " + i + "px 0px " + text_color;
+            break;
+          case 'SW':
+            if (settings.boxShadow != false) box_shadow += (i * 2) * -1 + "px " + i * 2 + "px 0px " + convertHex( bg_color, (50 - i/ height * 100)  );
+            text_shadow += i * -1 + "px " + i + "px 0px " + text_color;
+            break;
+          case 'W':
+            if (settings.boxShadow != false) box_shadow += (i * 2) * -1 + "px " + "0px 0px " + convertHex( bg_color, (50 - i/ height * 100)  );
+            text_shadow += i * -1 + "px " + "0px 0px " + text_color;
+            break;
+          case 'NW':
+            if (settings.boxShadow != false) box_shadow += (i * 2) * -1 + "px " + (i * 2) * -1 + "px 0px " + convertHex( bg_color, (50 - i/ height * 100)  );
+            text_shadow += i * -1 + "px " + i * -1 + "px 0px " + text_color;
+            break;
+        }
+        if (i != iLimit) {
+           text_shadow += ", "
+           box_shadow += ", "
+         }
       }
       el.css({
         "background": color,
