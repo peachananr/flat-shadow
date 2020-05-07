@@ -4,10 +4,9 @@ Created by [Pete R.](http://www.thepetedesign.com), Founder of [BucketListly](ht
 
 License: [Attribution-ShareAlike 4.0 International](http://creativecommons.org/licenses/by-sa/4.0/deed.en_US)
 
-[![Flat Shadow](http://www.thepetedesign.com/images/flat_shadow_image.png "Flat Shadow")](http://www.thepetedesign.com/demos/jquery_flat_shadow_demo.html)
 
 ## Demo
-[View demo](http://thepetedesign.com/demos/jquery_flat_shadow_demo.html)
+[View demo](http://peachananr.github.io/flat-shadow/demo.html)
 
 ## Usage
 To use this on your website, simply include the latest jQuery library found here together with `jquery.flatshadow.js` into your document's `<head>`, follow by the html markup and a function call as follows:
